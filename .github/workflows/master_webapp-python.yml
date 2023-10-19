@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_9a69eb79ea6642ee9b8e3bdfaf09a247 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_24895fb628374369b4fbc4b7efe31630 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_1a134053859d41d1bc60ce0631b4697d }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_6704d1730e8d4a9498bb93b6b0f8bd49 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_9a69eb79ea6642ee9b8e3bdfaf09a247 }}/wentfrommr305/pythonapp:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1a134053859d41d1bc60ce0631b4697d }}/wentfrommr305/pythonapp:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'webapp-python'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_af1866a2600d4b24b343d141ece732e5 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_9a69eb79ea6642ee9b8e3bdfaf09a247 }}/wentfrommr305/pythonapp:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0e61d36f17d8439d996c0cb5a5476b28 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1a134053859d41d1bc60ce0631b4697d }}/wentfrommr305/pythonapp:${{ github.sha }}'
