@@ -15,13 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t wentfrommr305/pythonapp:$(date +%s) .
+      run: docker build -t wentfrommr305/pythonapp:latest .
       
     - name: Push the Docker image
       run: docker login -u wentfrommr305 -p 9811049937
 
     - name: Build the Docker image
-      run: docker push wentfrommr305/pythonapp:$(date +%s)
+      run: docker push wentfrommr305/pythonapp:latest
       
     - name: Push the Docker image
       run: docker logout
