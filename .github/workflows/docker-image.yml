@@ -18,7 +18,7 @@ jobs:
       run: docker build -t wentfrommr305/pythonapp:latest .
       
     - name: Push the Docker image
-      run: docker login -u wentfrommr305 -p 9811049937
+      run: docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
 
     - name: Build the Docker image
       run: docker push wentfrommr305/pythonapp:latest
