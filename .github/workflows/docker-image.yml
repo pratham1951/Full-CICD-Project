@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile wentfrommr305/pythonapp:$(date +%s)
+      run: docker build -t wentfrommr305/pythonapp:$(date +%s) .
       
     - name: Push the Docker image
       run: docker login -u wentfrommr305 -p 9811049937
